@@ -1,6 +1,6 @@
-package GameState;
+package game_state;
 
-import Audio.AudioPlayer;
+import audio.AudioPlayer;
 
 public abstract class GameState {
 

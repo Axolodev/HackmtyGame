@@ -1,10 +1,11 @@
-package TileMap;
-
-import Main.GamePanel;
+package tile_map;
 
 import java.awt.*;
 import java.awt.image.*;
+
 import javax.imageio.ImageIO;
+
+import main.GamePanel;
 
 public class Background {
 	

@@ -1,9 +1,9 @@
-package GameState;
-
-import TileMap.Background;
+package game_state;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+
+import tile_map.Background;
 
 public class MenuState extends GameState {
 
@@ -18,19 +18,14 @@ public class MenuState extends GameState {
 	private Font font; 
  
 	public MenuState(GameStateManager gsm) {
- 
 		this.gsm = gsm;
-
 		try {
-
 			bg = new Background("/Backgrounds/Fondo.jpg", 1);
-			bg.setVector(-0.3, 0);
-
+			bg.setVector(0, 0);
 			titleColor = new Color(128, 0, 0);
-			titleFont = new Font("Century Gothic", Font.PLAIN, 28);
-
-			font = new Font("Arial", Font.PLAIN, 12);
-
+			titleFont = new Font("Century Gothic", Font.PLAIN, 60);
+			font = new Font("Arial", Font.PLAIN, 30);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -68,7 +63,7 @@ public class MenuState extends GameState {
 			} else {
 				g.setColor(Color.RED);
 			}
-			g.drawString(options[i], 145, 140 + i * 15);
+			g.drawString(options[i], 145, 140 + i * 40);
 		}
 
 	}
@@ -104,6 +99,7 @@ public class MenuState extends GameState {
 	}
 
 	public void keyReleased(int k) {
+		
 	}
 
 }
