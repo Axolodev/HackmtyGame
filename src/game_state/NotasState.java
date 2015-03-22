@@ -42,15 +42,17 @@ public class NotasState extends GameState {
 		for (int j = 0; j < contMax; j++) {
 
 				if (j == 0) {
-					nota[j].setPosition(nota[j].getx() - 1, nota[j].gety());
-				} else {
-					if (nota[j].getx() == nota[j - 1].getx() + 70) {
-						nota[j].setPosition(nota[j].getx() - 1, nota[j].gety());
+					nota[j].setPosition(nota[j].getx() - 5, nota[j].gety());
+					
+				} 
+				else {
+					if (nota[j].getx() == nota[j - 1].getx() + 150 ) {
+						nota[j].setPosition(nota[j].getx() - 5, nota[j].gety());
+						
+						
 					}
 					
-				
-				}
-			
+				}	
 
 		}
 	}
@@ -60,8 +62,11 @@ public class NotasState extends GameState {
 		bg.draw(g);
 		for (int j = 0; j < contMax; j++) {
 			nota[j].draw(g);
+			
+			
 		}
 		g.drawString("K. E. Y.", 150, 200);
+		
 	}
 
 	@Override
@@ -69,26 +74,28 @@ public class NotasState extends GameState {
 		if (k == KeyEvent.VK_Q) {
 			for (int j = 0; j < contMax; j++) {
 				
-				if (nota[j].getx() < 150 && nota[j].getx() > 50) {
-					if(j == contMax) {
-						contMax++;
-					}
+				if (nota[j].getx() < 200 && nota[j].getx() > 100) {
 					nota[j].setPosition(850, nota[j].gety());
 					
-				}
-				else {
-					if(nota[j].getx() < 50)
-						contMax = j;
+					if(j == contMax - 1) {
+						contMax++;
 						
+					}
+					
+							
 				}
+				else
+					contMax = j + 1;
+				
 				
 			}
 
 		}
+	}
 
 		// TODO Auto-generated method stub
 
-	}
+	
 
 	@Override
 	public void keyReleased(int k) {
