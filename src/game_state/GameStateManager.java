@@ -1,19 +1,18 @@
 package game_state;
 
-
 public class GameStateManager {
 
 	private GameState[] gameStates;
 	private int currentState;
 	private int score;
-	public static final int NUMGAMESTATES = 1;
+	public static final int NUMGAMESTATES = 2;
 	public static final int MENUSTATE = 0;
-
+	public static final int NOTASSTATE = 1;
 
 	public GameStateManager() {
 		gameStates = new GameState[NUMGAMESTATES];
 
-		currentState = MENUSTATE;
+		currentState = NOTASSTATE;
 		loadState(currentState);
 
 	}
@@ -35,14 +34,16 @@ public class GameStateManager {
 	}
 
 	private void loadState(int state) {
-		if(state == MENUSTATE){
+		if (state == MENUSTATE) {
 			gameStates[state] = new MenuState(this);
+		} else if (state == NOTASSTATE) {
+			gameStates[state] = new NotasState(this);
 		}
 
 	}
 
 	private void unloadState(int state) {
-		gameStates[state] = null; 
+		gameStates[state] = null;
 	}
 
 	public void setState(int state) {
@@ -55,7 +56,7 @@ public class GameStateManager {
 			gameStates[currentState].update();
 		} catch (Exception e) {
 		}
-	} 
+	}
 
 	public void draw(java.awt.Graphics2D g) {
 		try {
