@@ -14,7 +14,7 @@ public class MenuState extends GameState {
 	private Background bg;
 
 	private int currentChoice = 1;
-	private String[] options = { "Iniciar", "Ayuda", "Puntuaciones", "Salir" };
+	private String[] options = { "Iniciar", "Ayuda", "Salir" };
 	private Boton flechaDerecha, flechaIzquierda;
 
 	private Color titleColor;
@@ -68,11 +68,13 @@ public class MenuState extends GameState {
 		flechaIzquierda.setAnimationDelay(70);
 
 		for (int i = 0; i < NUMEROBOTONES; i++) {
+			botonesDeJuego[i] = new Boton();
 			botonesDeJuego[i].setWidth(200);
 			botonesDeJuego[i].setHeight(200);
 			botonesDeJuego[i].loadImagesFromStringWithExtension(
-					"/Backgrounds/Botones/placeholderImage", 1, ".png");
+					"/Backgrounds/Botones/placeholderImage" + i, 1, ".png");
 			botonesDeJuego[i].setPosition(-125 + 525 * i, gameButtonY);
+			botonesDeJuego[i].setIdNumber(i);
 		}
 
 	}
@@ -81,9 +83,31 @@ public class MenuState extends GameState {
 		bg.update();
 		flechaDerecha.update();
 		flechaIzquierda.update();
-		movementCounter++;
+		movementCounter+=6;
 		for (int i = 0; i < NUMEROBOTONES; i++) {
 			botonesDeJuego[i].update();
+		}
+		
+		if(movementCounter >= 525){
+			for(int i = 0; i < NUMEROBOTONES ; i++){
+				botonesDeJuego[i].setVector(0, 0);
+			}
+			Boton temp;
+			if(movingRight){
+				botonesDeJuego[2].setPosition(-125, gameButtonY);
+				temp = botonesDeJuego[0];
+				botonesDeJuego[0] = botonesDeJuego[1];
+				botonesDeJuego[1] = botonesDeJuego[2];
+				botonesDeJuego[2] = temp;
+				movingRight = false;
+			} else if (movingLeft){
+				botonesDeJuego[0].setPosition(925, gameButtonY);
+				temp = botonesDeJuego[0];
+				botonesDeJuego[0] = botonesDeJuego[2];
+				botonesDeJuego[2] = botonesDeJuego[1];
+				botonesDeJuego[1] = temp;
+				movingLeft = false;
+			}
 		}
 	}
 
@@ -101,7 +125,6 @@ public class MenuState extends GameState {
 		// draw title
 		g.setColor(titleColor);
 		g.setFont(titleFont);
-		g.drawString("K. E. Y.", 115, 70);
 
 		// draw menu options
 		g.setFont(font);
@@ -114,13 +137,14 @@ public class MenuState extends GameState {
 			g.drawString(options[i], 145, 140 + i * 40);
 		}
 		for(int i = 0 ; i < NUMEROBOTONES ; i++){
-			botonesDeJuego[i].setVector(-6, 0);
+			botonesDeJuego[i].draw(g);
 		}
 		flechaDerecha.draw(g);
 		flechaIzquierda.draw(g);
 	}
 
 	private void select() {
+		System.out.println(botonesDeJuego[currentChoice].getIdNumber());
 		if (currentChoice == options.length - 1) {
 			System.exit(0);
 		}
@@ -145,6 +169,7 @@ public class MenuState extends GameState {
 			for(int i = 0 ; i < NUMEROBOTONES ; i++){
 				botonesDeJuego[i].setVector(-6, 0);
 			}
+			movingLeft = true;
 		}
 		if (k == KeyEvent.VK_RIGHT) {
 			movementCounter = 0;
@@ -153,8 +178,9 @@ public class MenuState extends GameState {
 				currentChoice = 0;
 			}
 			for(int i = 0 ; i < NUMEROBOTONES ; i++){
-				botonesDeJuego[i].setVector(-6, 0);
+				botonesDeJuego[i].setVector(6, 0);
 			}
+			movingRight = true;
 		}
 		
 	
