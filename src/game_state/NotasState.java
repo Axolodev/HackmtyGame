@@ -27,13 +27,13 @@ public void init() {
 
 @Override
 public void update() {
-	// TODO Auto-generated method stub
+	bg.update();// TODO Auto-generated method stub
 	
 }
 
 @Override
 public void draw(Graphics2D g) {
-	// TODO Auto-generated method stub
+	bg.draw(g);// TODO Auto-generated method stub
 	
 }
 
