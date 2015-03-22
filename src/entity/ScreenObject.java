@@ -5,7 +5,6 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
-import tile_map.Tile;
 import main.GamePanel;
 
 public class ScreenObject {
@@ -47,8 +46,6 @@ public class ScreenObject {
 	protected boolean right;
 	protected boolean up;
 	protected boolean down;
-	protected boolean jumping;
-	protected boolean falling;
 
 	// movement attributes
 	protected double moveSpeed;
@@ -56,8 +53,6 @@ public class ScreenObject {
 	protected double stopSpeed;
 	protected double fallSpeed;
 	protected double maxFallSpeed;
-	protected double jumpStart;
-	protected double stopJumpSpeed;
 
 	public ScreenObject() {
 	}
@@ -74,6 +69,8 @@ public class ScreenObject {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		animation = new Animation();
+		animation.setFrames(bi);
 	}
 
 	public boolean intersects(ScreenObject o) {
@@ -143,10 +140,6 @@ public class ScreenObject {
 
 	public void setDown(boolean b) {
 		down = b;
-	}
-
-	public void setJumping(boolean b) {
-		jumping = b;
 	}
 
 	public boolean notOnScreen() {
