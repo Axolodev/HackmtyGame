@@ -1,12 +1,12 @@
-package TileMap;
+package tile_map;
 
 import java.awt.*;
 import java.awt.image.*;
-
 import java.io.*;
+
 import javax.imageio.ImageIO;
 
-import Main.GamePanel;
+import main.GamePanel;
 
 public class TileMap {
 

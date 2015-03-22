@@ -1,12 +1,12 @@
-package Main;
+package main;
+
+import game_state.GameStateManager;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.*;
 
 import javax.swing.JPanel;
-
-import GameState.GameStateManager;
 
 @SuppressWarnings("serial")
 public class GamePanel extends JPanel 

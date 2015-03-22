@@ -1,4 +1,4 @@
-package GameState;
+package game_state;
 
 
 public class GameStateManager {

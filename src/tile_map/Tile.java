@@ -1,4 +1,4 @@
-package TileMap;
+package tile_map;
 
 import java.awt.image.BufferedImage;
 
