@@ -8,11 +8,20 @@ public class Notas extends ScreenObject{
 	
 	public int identificador;
 	public Notas(){
-		identificador = 1;
+		identificador = (int) (Math.random()*3);
+		if(identificador == 0){
+		loadImagesFromStringWithExtension("/Backgrounds/Entidades/triangulo0", 1,".png");
+		}
+		else if(identificador == 1){
+			loadImagesFromStringWithExtension("/Backgrounds/Entidades/circulo0", 1,".png");
+		}
+		else if(identificador == 2){
+			loadImagesFromStringWithExtension("/Backgrounds/Entidades/rombo0", 1,".png");
+		}
 		this.width = 50;
 		this.height = 50;
-		this.setPosition(400,200);
-		loadImagesFromStringWithExtension("/Backgrounds/Entidades/Triangulo", 1,".png");
+		this.setPosition(800,200);
+
 
 	}
 	
