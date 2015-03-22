@@ -23,6 +23,7 @@ public class MenuState extends GameState {
 	private Font font;
 
 	private Boton gameOne;
+	private Boton gameTwo;
 
 	public MenuState(GameStateManager gsm) {
 		this.gsm = gsm;
@@ -42,16 +43,21 @@ public class MenuState extends GameState {
 
 	public void init() {
 		gameOne = new Boton();
+		gameTwo = new Boton();
 		flechaDerecha = new Boton();
 		flechaIzquierda = new Boton();
 		gameOne.setWidth(200);
 		gameOne.setHeight(200);
+		gameTwo.setWidth(200);
+		gameTwo.setHeight(200);
 		flechaDerecha.setWidth(140);
 		flechaDerecha.setHeight(60);
 		flechaIzquierda.setWidth(140);
 		flechaIzquierda.setHeight(60);
 
 		gameOne.loadImagesFromStringWithExtension(
+				"/Backgrounds/Botones/placeholderImage", 1, ".png");
+		gameTwo.loadImagesFromStringWithExtension(
 				"/Backgrounds/Botones/placeholderImage", 1, ".png");
 		flechaDerecha.loadImagesFromStringWithExtension(
 				"/Backgrounds/Entidades/Flecha/", 9, ".png");
@@ -62,6 +68,7 @@ public class MenuState extends GameState {
 				GamePanel.HEIGHT / 2 - 46);
 		flechaIzquierda.setPosition(50, GamePanel.HEIGHT / 2 + 20);
 		gameOne.setPosition(GamePanel.WIDTH / 2, GamePanel.HEIGHT / 2 );
+		gameTwo.setPosition(GamePanel.WIDTH / 2, GamePanel.HEIGHT / 2 );
 		System.out.println(gameOne.getx() + ":" + gameOne.gety());
 		flechaDerecha.setAnimationDelay(70);
 		flechaIzquierda.setAnimationDelay(70);
@@ -100,6 +107,7 @@ public class MenuState extends GameState {
 			g.drawString(options[i], 145, 140 + i * 40);
 		}
 		gameOne.draw(g);
+		gameTwo.draw(g);
 		flechaDerecha.draw(g);
 		flechaIzquierda.draw(g);
 	}
