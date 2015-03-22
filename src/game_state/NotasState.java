@@ -1,14 +1,18 @@
 package game_state;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
-import entity.Notas;
 import tile_map.Background;
+import entity.Notas;
 
 public class NotasState extends GameState {
 
 	private Background bg;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 	private Notas[] nota;
 	private boolean siguiente;
 	private int contMax;
