@@ -10,13 +10,14 @@ public class NotasState extends GameState {
 
 	private Background bg;
 	private Notas[] nota;
-	private boolean siguiente;
+	private int currentNote;
 	private int contMax;
+	private int noteSeparation;
 
 	public NotasState(GameStateManager gsm) {
+		noteSeparation = 150;
 		this.gsm = gsm;
 		nota = new Notas[100];
-		siguiente = false;
 		contMax = 1;
 		try {
 			bg = new Background("/Backgrounds/fondojuego1.png", 1);
@@ -31,28 +32,18 @@ public class NotasState extends GameState {
 
 	@Override
 	public void init() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void update() {
-		bg.update();// TODO Auto-generated method stub
 		for (int j = 0; j < contMax; j++) {
-
-				if (j == 0) {
-					nota[j].setPosition(nota[j].getx() - 5, nota[j].gety());
-					
-				} 
-				else {
-					if (nota[j].getx() == nota[j - 1].getx() + 150 ) {
-						nota[j].setPosition(nota[j].getx() - 5, nota[j].gety());
-						
-						
-					}
-					
-				}	
-
+			if (j == 0) {
+				nota[j].setVector(-5, 0);
+			} else if (nota[j].getx() == nota[j - 1].getx() + 150) {
+				nota[j].setVector(-5, 0);
+			}
+			nota[j].update();
 		}
 	}
 
@@ -61,44 +52,29 @@ public class NotasState extends GameState {
 		bg.draw(g);
 		for (int j = 0; j < contMax; j++) {
 			nota[j].draw(g);
-			
-			
+
 		}
 		g.drawString("K. E. Y.", 150, 200);
-		
+
 	}
 
 	@Override
 	public void keyPressed(int k) {
 		if (k == KeyEvent.VK_Q) {
-			for (int j = 0; j < contMax; j++) {
-				
-				if (nota[j].getx() < 200 && nota[j].getx() > 100) {
-					nota[j].setPosition(850, nota[j].gety());
-					
-					if(j == contMax - 1) {
-						contMax++;
-						
-					}
-					
-							
+			if (nota[currentNote].getx() < 200 && nota[currentNote].getx() > 100) {
+				nota[currentNote].setPosition(700 + 150 * contMax, 300);
+				currentNote++;
+				if (currentNote == contMax) {
+					contMax++;
+					currentNote = 0;
 				}
-				else
-					contMax = j + 1;
-				
-				
 			}
 
 		}
 	}
 
-		// TODO Auto-generated method stub
-
-	
-
 	@Override
 	public void keyReleased(int k) {
-		// TODO Auto-generated method stub
 
 	}
 }
