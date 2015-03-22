@@ -9,6 +9,8 @@ public class Notas extends ScreenObject{
 	public Notas(){
 		identificador = 1;
 		this.setPosition(850,300);
+		this.width = 100;
+		this.height = 100;
 	}
 	
 	public void draw(Graphics2D g){
