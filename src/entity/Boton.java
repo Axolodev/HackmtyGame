@@ -8,12 +8,13 @@ public class Boton extends ScreenObject{
 	}
 	
 	public void update(){
+		x += dx;
+		y += dy;
 		animation.update();
 	}
 	
 	public void draw(Graphics2D g){
 		setMapPosition();
 		super.draw(g);
-		
 	}
 }
