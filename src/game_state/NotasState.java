@@ -13,7 +13,7 @@ public class NotasState extends GameState{
 public NotasState(GameStateManager gsm) {
 	this.gsm = gsm;
 	try {
-		bg = new Background("/Backgrounds/FondoN.jpg", 1);
+		bg = new Background("/Backgrounds/fondojuego1.png", 1);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
