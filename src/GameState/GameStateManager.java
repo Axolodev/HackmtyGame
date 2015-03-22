@@ -35,8 +35,8 @@ public class GameStateManager {
 	}
 
 	private void loadState(int state) {
-		if (state == MENUSTATE) {
-			score = 0;
+		if(state == MENUSTATE){
+			gameStates[state] = new MenuState(this);
 		}
 
 	}
