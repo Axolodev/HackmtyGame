@@ -39,7 +39,7 @@ public class NotasState extends GameState {
 	@Override
 	public void update() {
 		bg.update();// TODO Auto-generated method stub
-		for (int j = 100; j > contMax; j--) {
+		for (int j = 0; j < contMax; j++) {
 
 				if (j == 0) {
 					nota[j].setPosition(nota[j].getx() - 1, nota[j].gety());
@@ -47,6 +47,8 @@ public class NotasState extends GameState {
 					if (nota[j].getx() == nota[j - 1].getx() + 70) {
 						nota[j].setPosition(nota[j].getx() - 1, nota[j].gety());
 					}
+					
+				
 				}
 			
 
@@ -66,12 +68,20 @@ public class NotasState extends GameState {
 	public void keyPressed(int k) {
 		if (k == KeyEvent.VK_Q) {
 			for (int j = 0; j < contMax; j++) {
+				
 				if (nota[j].getx() < 150 && nota[j].getx() > 50) {
+					if(j == contMax) {
+						contMax++;
+					}
 					nota[j].setPosition(850, nota[j].gety());
+					
 				}
-				if (j == contMax - 1) {
-					contMax++;
+				else {
+					if(nota[j].getx() < 50)
+						contMax = j;
+						
 				}
+				
 			}
 
 		}
