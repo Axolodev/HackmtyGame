@@ -123,6 +123,14 @@ public class ScreenObject{
 		this.dy = dy;
 	}
 
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
 	public void setMapPosition() {
 
 	}

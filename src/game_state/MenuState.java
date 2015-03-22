@@ -1,9 +1,12 @@
 package game_state;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 import tile_map.Background;
+import entity.Boton;
 
 public class MenuState extends GameState {
 
@@ -11,7 +14,8 @@ public class MenuState extends GameState {
 
 	private int currentChoice = 0;
 	private String[] options = { "Iniciar", "Ayuda", "Puntuaciones", "Salir" };
-
+	private Boton flechaDerecha, flechaIzquierda;
+	
 	private Color titleColor;
 	private Font titleFont;
 
@@ -30,10 +34,22 @@ public class MenuState extends GameState {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		
 
 	}
 
 	public void init() {
+		flechaDerecha = new Boton();
+		flechaIzquierda = new Boton();
+		flechaDerecha.setWidth(140);
+		flechaDerecha.setHeight(60);
+		flechaIzquierda.setWidth(140);
+		flechaIzquierda.setHeight(60);
+		flechaDerecha.loadImagesFromStringWithExtension("\\Backgrounds\\Entidades\\Flecha", 9, ".png");
+		flechaIzquierda.loadImagesFromStringWithExtension("\\Backgrounds\\Entidades\\Flecha", 9, ".png");
+		flechaIzquierda.setRight(false);
 	}
 
 	public void update() {
