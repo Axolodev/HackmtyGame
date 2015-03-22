@@ -155,6 +155,10 @@ public class ScreenObject{
 		down = b;
 	}
 
+	public void setAnimationDelay(long d){
+		this.animation.setDelay(d);
+	}
+	
 	public boolean onScreen() {
 		return !(x + width < 0 || x - width > GamePanel.WIDTH || y + height < 0
 				|| y + height > GamePanel.HEIGHT);

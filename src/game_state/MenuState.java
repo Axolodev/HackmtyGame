@@ -16,12 +16,12 @@ public class MenuState extends GameState {
 	private int currentChoice = 0;
 	private String[] options = { "Iniciar", "Ayuda", "Puntuaciones", "Salir" };
 	private Boton flechaDerecha, flechaIzquierda;
-	
+
 	private Color titleColor;
 	private Font titleFont;
 
-	private Font font; 
- 
+	private Font font;
+
 	public MenuState(GameStateManager gsm) {
 		this.gsm = gsm;
 		try {
@@ -31,7 +31,7 @@ public class MenuState extends GameState {
 			titleColor = new Color(128, 0, 0);
 			titleFont = new Font("Century Gothic", Font.PLAIN, 60);
 			font = new Font("Arial", Font.PLAIN, 30);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -45,27 +45,32 @@ public class MenuState extends GameState {
 		flechaDerecha.setHeight(60);
 		flechaIzquierda.setWidth(140);
 		flechaIzquierda.setHeight(60);
-		flechaDerecha.loadImagesFromStringWithExtension("/Backgrounds/Entidades/Flecha/", 9, ".png");
-		flechaIzquierda.loadImagesFromStringWithExtension("/Backgrounds/Entidades/Flecha/", 9, ".png");
+		flechaDerecha.loadImagesFromStringWithExtension(
+				"/Backgrounds/Entidades/Flecha/", 9, ".png");
+		flechaIzquierda.loadImagesFromStringWithExtension(
+				"/Backgrounds/Entidades/Flecha/", 9, ".png");
 		flechaDerecha.setFacingRight(true);
-		flechaDerecha.setPosition(GamePanel.WIDTH - 50, GamePanel.HEIGHT / 2 - 47);
+		flechaDerecha.setPosition(GamePanel.WIDTH - 50,
+				GamePanel.HEIGHT / 2 - 46);
 		flechaIzquierda.setPosition(50, GamePanel.HEIGHT / 2 + 20);
+		flechaDerecha.setAnimationDelay(70);
+		flechaIzquierda.setAnimationDelay(70);
 	}
 
 	public void update() {
 		bg.update();
+		flechaDerecha.update();
+		flechaIzquierda.update();
 	}
 
-    /**
-     * Metodo para la clase <code> MenuState </code>
-     *
-     * @param g
-     *              dibuja el menu del juego
-     */
+	/**
+	 * Metodo para la clase <code> MenuState </code>
+	 *
+	 * @param g
+	 *            dibuja el menu del juego
+	 */
 	public void draw(Graphics2D g) {
 
-		
-		
 		// draw bg
 		bg.draw(g);
 
@@ -84,7 +89,7 @@ public class MenuState extends GameState {
 			}
 			g.drawString(options[i], 145, 140 + i * 40);
 		}
-		
+
 		flechaDerecha.draw(g);
 		flechaIzquierda.draw(g);
 	}
@@ -95,23 +100,23 @@ public class MenuState extends GameState {
 		}
 	}
 
-    /**
-     * Metodo para la clase <code> MenuState </code>
-     *
-     * @param k
-     *            es la tecla que realiza las opciones
-     */
+	/**
+	 * Metodo para la clase <code> MenuState </code>
+	 *
+	 * @param k
+	 *            es la tecla que realiza las opciones
+	 */
 	public void keyPressed(int k) {
 		if (k == KeyEvent.VK_ENTER) {
 			select();
 		}
-		if (k == KeyEvent.VK_UP) {
+		if (k == KeyEvent.VK_LEFT) {
 			currentChoice--;
 			if (currentChoice == -1) {
 				currentChoice = options.length - 1;
 			}
 		}
-		if (k == KeyEvent.VK_DOWN) {
+		if (k == KeyEvent.VK_RIGHT) {
 			currentChoice++;
 			if (currentChoice == options.length) {
 				currentChoice = 0;
@@ -120,7 +125,7 @@ public class MenuState extends GameState {
 	}
 
 	public void keyReleased(int k) {
-		
+
 	}
 
 }
