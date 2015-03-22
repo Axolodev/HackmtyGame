@@ -5,15 +5,17 @@ import java.awt.Graphics2D;
 
 public class Notas extends ScreenObject{
 	
+	
 	public int identificador;
 	public Notas(){
 		identificador = 1;
-		this.setPosition(850,300);
+		this.setPosition(200,200);
+		loadImagesFromStringWithExtension("/Backgrounds/Entidades/Triangulo", 1,".png");
 	}
 	
 	public void draw(Graphics2D g){
-		
-		this.loadImagesFromStringWithExtension("Triangulo",1,".png");
+		setMapPosition();
+		super.draw(g);
 		
 	}
 
