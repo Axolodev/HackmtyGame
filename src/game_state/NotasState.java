@@ -1,7 +1,7 @@
 package game_state;
 
 import java.awt.*;
-
+import java.awt.event.KeyEvent;
 
 import entity.Notas;
 import tile_map.Background;
@@ -31,6 +31,8 @@ public void init() {
 @Override
 public void update() {
 	bg.update();// TODO Auto-generated method stub
+	nota.setPosition(nota.getx()-4,nota.gety());
+
 	
 }
 
@@ -38,11 +40,17 @@ public void update() {
 public void draw(Graphics2D g) {
 	bg.draw(g);
 	nota.draw(g);
-	
+	g.drawString("K. E. Y.", 150, 200);
 }
 
 @Override
 public void keyPressed(int k) {
+	if (k == KeyEvent.VK_Q) {
+		if(nota.getx()<150 && nota.getx()>50){
+			nota.setPosition(400,nota.gety());
+		}
+			
+	}
 	
 	
 	// TODO Auto-generated method stub

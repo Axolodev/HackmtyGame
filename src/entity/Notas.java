@@ -9,9 +9,9 @@ public class Notas extends ScreenObject{
 	public int identificador;
 	public Notas(){
 		identificador = 1;
-		this.width = 100;
-		this.height = 100;
-		this.setPosition(200,200);
+		this.width = 50;
+		this.height = 50;
+		this.setPosition(400,200);
 		loadImagesFromStringWithExtension("/Backgrounds/Entidades/Triangulo", 1,".png");
 
 	}
@@ -19,7 +19,6 @@ public class Notas extends ScreenObject{
 	public void draw(Graphics2D g){
 		setMapPosition();
 		super.draw(g);
-		draw(g);
 		
 	}
 
