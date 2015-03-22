@@ -9,7 +9,10 @@ import entity.Notas;
 public class NotasState extends GameState {
 
 	private Background bg;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8d7e84b2b17d98f9ef8a105910d554e0f1ebbdfc
 	private Notas[] nota;
 	private boolean siguiente;
 	private int contMax;
