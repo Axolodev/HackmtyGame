@@ -104,7 +104,7 @@ public class TileMap {
 		}
 
 	}
-	
+
 	public void loadMapAsArray(String s) {
 
 		try {
