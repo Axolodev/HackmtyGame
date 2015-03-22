@@ -143,12 +143,13 @@ public class ScreenObject{
 		down = b;
 	}
 
-	public boolean notOnScreen() {
-		return x + width < 0 || x - width > GamePanel.WIDTH || y + height < 0
-				|| y + height > GamePanel.HEIGHT;
+	public boolean onScreen() {
+		return !(x + width < 0 || x - width > GamePanel.WIDTH || y + height < 0
+				|| y + height > GamePanel.HEIGHT);
 	}
 
 	public void draw(java.awt.Graphics2D g) {
+		
 		if (facingRight) {
 			g.drawImage(animation.getImage(), (int) (x - width / 2),
 					(int) (y + height / 2), null);
