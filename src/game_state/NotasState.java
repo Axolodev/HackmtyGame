@@ -9,7 +9,6 @@ import tile_map.Background;
 public class NotasState extends GameState {
 
 	private Background bg;
-<<<<<<< HEAD
 	private Notas[] nota;
 	private boolean siguiente;
 	private int contMax;
@@ -26,17 +25,6 @@ public class NotasState extends GameState {
 			}
 
 		} catch (Exception e) {
-=======
-	private Notas nota;
-	
-public NotasState(GameStateManager gsm) {
-	this.gsm = gsm;
-	nota = new Notas();
-	try {
-		bg = new Background("/Backgrounds/fondojuego1.png", 1);
-		
-		}catch (Exception e) {
->>>>>>> origin/master
 			e.printStackTrace();
 		}
 	}
@@ -79,10 +67,11 @@ public NotasState(GameStateManager gsm) {
 			for (int j = 0; j < contMax; j++) {
 				if (nota[j].getx() < 150 && nota[j].getx() > 50) {
 					nota[j].setPosition(850, nota[j].gety());
+					if (j == contMax - 1) {
+						contMax++;
+					}
 				}
-				if (j == contMax - 1) {
-					contMax++;
-				}
+
 			}
 
 		}
