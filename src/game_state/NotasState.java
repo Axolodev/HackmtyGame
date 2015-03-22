@@ -38,6 +38,7 @@ public void update() {
 public void draw(Graphics2D g) {
 	bg.draw(g);
 	nota.draw(g);
+	g.drawString("K. E. Y.", 115, 70);
 }
 
 @Override

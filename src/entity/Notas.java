@@ -19,6 +19,7 @@ public class Notas extends ScreenObject{
 	public void draw(Graphics2D g){
 		setMapPosition();
 		super.draw(g);
+		draw(g);
 		
 	}
 
