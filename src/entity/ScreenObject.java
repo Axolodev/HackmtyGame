@@ -41,6 +41,10 @@ public class ScreenObject{
 	protected int previousAction;
 	protected boolean facingRight;
 
+	public void setFacingRight(boolean facingRight) {
+		this.facingRight = facingRight;
+	}
+
 	// movement
 	protected boolean left;
 	protected boolean right;
@@ -152,6 +156,10 @@ public class ScreenObject{
 	}
 	
 
+	public void setAnimationDelay(long d){
+		this.animation.setDelay(d);
+	}
+	
 	public boolean onScreen() {
 		return !(x + width < 0 || x - width > GamePanel.WIDTH || y + height < 0
 				|| y + height > GamePanel.HEIGHT);

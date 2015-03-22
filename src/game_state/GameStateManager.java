@@ -12,7 +12,7 @@ public class GameStateManager {
 	public GameStateManager() {
 		gameStates = new GameState[NUMGAMESTATES];
 
-		currentState = NOTASSTATE;
+		currentState = MENUSTATE;
 		loadState(currentState);
 
 	}
