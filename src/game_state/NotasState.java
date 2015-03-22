@@ -39,7 +39,7 @@ public class NotasState extends GameState {
 	@Override
 	public void update() {
 		bg.update();// TODO Auto-generated method stub
-		for (int j = 0; j < contMax; j++) {
+		for (int j = 100; j > contMax; j--) {
 
 				if (j == 0) {
 					nota[j].setPosition(nota[j].getx() - 1, nota[j].gety());

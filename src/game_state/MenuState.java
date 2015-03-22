@@ -140,6 +140,8 @@ public class MenuState extends GameState {
 				currentChoice = 0;
 			}
 		}
+		
+	
 	}
 
 	public void keyReleased(int k) {
