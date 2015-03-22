@@ -7,7 +7,6 @@ public class Boton extends ScreenObject{
 	public Boton(){
 		this.width = 50;
 		this.height = 50;
-		this.setPosition(400,200);
 		loadImagesFromStringWithExtension("/Backgrounds/Entidades/Triangulo", 1,".png");
 
 	}
