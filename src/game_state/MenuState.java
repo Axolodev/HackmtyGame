@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
+import main.GamePanel;
 import tile_map.Background;
 import entity.Boton;
 
@@ -34,10 +35,7 @@ public class MenuState extends GameState {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		
-
+		init();
 	}
 
 	public void init() {
@@ -47,9 +45,11 @@ public class MenuState extends GameState {
 		flechaDerecha.setHeight(60);
 		flechaIzquierda.setWidth(140);
 		flechaIzquierda.setHeight(60);
-		flechaDerecha.loadImagesFromStringWithExtension("\\Backgrounds\\Entidades\\Flecha", 9, ".png");
-		flechaIzquierda.loadImagesFromStringWithExtension("\\Backgrounds\\Entidades\\Flecha", 9, ".png");
-		flechaIzquierda.setRight(false);
+		flechaDerecha.loadImagesFromStringWithExtension("/Backgrounds/Entidades/Flecha/", 9, ".png");
+		flechaIzquierda.loadImagesFromStringWithExtension("/Backgrounds/Entidades/Flecha/", 9, ".png");
+		flechaDerecha.setFacingRight(true);
+		flechaDerecha.setPosition(GamePanel.WIDTH - 50, GamePanel.HEIGHT / 2 - 47);
+		flechaIzquierda.setPosition(50, GamePanel.HEIGHT / 2 + 20);
 	}
 
 	public void update() {
@@ -64,6 +64,8 @@ public class MenuState extends GameState {
      */
 	public void draw(Graphics2D g) {
 
+		
+		
 		// draw bg
 		bg.draw(g);
 
@@ -82,7 +84,9 @@ public class MenuState extends GameState {
 			}
 			g.drawString(options[i], 145, 140 + i * 40);
 		}
-
+		
+		flechaDerecha.draw(g);
+		flechaIzquierda.draw(g);
 	}
 
 	private void select() {

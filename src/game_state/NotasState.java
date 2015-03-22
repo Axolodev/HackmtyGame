@@ -14,12 +14,9 @@ public class NotasState extends GameState{
 	
 public NotasState(GameStateManager gsm) {
 	this.gsm = gsm;
-	nota = new Notas[100]
+	nota = new Notas();
 	try {
 		bg = new Background("/Backgrounds/fondojuego1.png", 1);
-		for(int i=0; i<100; i++){
-			nota[i] = new Notas();	
-		}
 		
 		}catch (Exception e) {
 			e.printStackTrace();

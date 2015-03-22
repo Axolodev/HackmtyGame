@@ -41,6 +41,10 @@ public class ScreenObject{
 	protected int previousAction;
 	protected boolean facingRight;
 
+	public void setFacingRight(boolean facingRight) {
+		this.facingRight = facingRight;
+	}
+
 	// movement
 	protected boolean left;
 	protected boolean right;
