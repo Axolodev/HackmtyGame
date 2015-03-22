@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 
 import main.GamePanel;
 
-public class ScreenObject {
+public class ScreenObject{
 
 	// position and vector
 	protected double x;
@@ -55,6 +55,7 @@ public class ScreenObject {
 	protected double maxFallSpeed;
 
 	public ScreenObject() {
+		
 	}
 
 	public void loadImagesFromStringWithExtension(String st, int amountImages,
@@ -156,5 +157,7 @@ public class ScreenObject {
 					(int) (y - height / 2), -width, height, null);
 		}
 	}
+
+	
 }
 

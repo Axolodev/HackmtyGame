@@ -2,12 +2,13 @@ package game_state;
 
 import audio.AudioPlayer;
 
-public abstract class GameState {
+public abstract class GameState{
 
 	protected GameStateManager gsm;
 	protected static AudioPlayer bgMusic;
 
 	public abstract void init();
+
 
 	/**
 	 * Metodo <code>stopMusic</code> encargado de detener la musica.
