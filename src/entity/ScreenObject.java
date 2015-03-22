@@ -150,10 +150,27 @@ public class ScreenObject{
 	public void setDown(boolean b) {
 		down = b;
 	}
+	
 
 	public boolean onScreen() {
 		return !(x + width < 0 || x - width > GamePanel.WIDTH || y + height < 0
 				|| y + height > GamePanel.HEIGHT);
+	}
+
+	public boolean isLeft() {
+		return left;
+	}
+
+	public boolean isRight() {
+		return right;
+	}
+
+	public boolean isUp() {
+		return up;
+	}
+
+	public boolean isDown() {
+		return down;
 	}
 
 	public void draw(java.awt.Graphics2D g) {

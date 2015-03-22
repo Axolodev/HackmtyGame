@@ -10,18 +10,18 @@ public class Notas extends ScreenObject{
 	public Notas(){
 		identificador = (int) (Math.random()*3);
 		if(identificador == 0){
-		loadImagesFromStringWithExtension("/Backgrounds/Entidades/triangulo0", 1,".png");
+			loadImagesFromStringWithExtension("/Backgrounds/Entidades/Triangulo", 1,".png");
 		}
 		else if(identificador == 1){
-			loadImagesFromStringWithExtension("/Backgrounds/Entidades/circulo0", 1,".png");
+			loadImagesFromStringWithExtension("/Backgrounds/Entidades/circulo", 1,".png");
 		}
 		else if(identificador == 2){
-			loadImagesFromStringWithExtension("/Backgrounds/Entidades/rombo0", 1,".png");
+			loadImagesFromStringWithExtension("/Backgrounds/Entidades/rombo", 1,".png");
 		}
 		this.width = 50;
 		this.height = 50;
-		this.setPosition(800,200);
-
+		this.setPosition(850,200);
+		this.setLeft(false);
 
 	}
 	
